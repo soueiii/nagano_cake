@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <!--管理者のヘッダー-->
+    <% if admin_signed_in? %>
+     
+    <% else %>
+  
+    <% end %>
+    
+    <!--カスタマーの-->
     <%= yield %>
   </body>
 </html>
