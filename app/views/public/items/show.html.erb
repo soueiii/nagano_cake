@@ -1,0 +1,15 @@
+<h4>ジャンル検索</h4>
+ <% @genres.each do |genre| %>
+  <%= genre.name %>
+ <% end %>
+
+<h2><%= @item.name %></h2>
+<%= attachment_image_tag @item, :image, :fill, 200, 200 %>
+<%= @item.introduction %>
+¥<%= @item.price %>（税込）
+
+<%= form_with model: @cart_item, url:public_cart_items_path, local:true do |f| %>
+ <%= f.hidden_field :item_id, :value => @item.id %>
+ <%= f.select :amount, [['１',1], ['２',2], ['３',3], ['４',4], ['５',5]] %>
+ <%= f.submit 'カートに入れる' %>
+<% end %>

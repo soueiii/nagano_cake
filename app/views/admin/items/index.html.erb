@@ -1,0 +1,40 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-8"></div>
+   <div class="col-md-3">
+    <button type="button" class="btn btn-secondary rounded-circle p-0" style="width:2rem;height:2rem;"><%= link_to '＋' ,new_admin_item_path %></button>
+   </div>
+  </div>
+ <div class="row">
+  <div claaa="col-md-3"></div>
+   <div class="col-md-9 mt-5">
+    <h2><span class="bg-secondary">商品一覧画面</span></h2>
+    <table class="table mt-5">
+     <thead class="thead-light">
+      <tr>
+       <th scope="col">商品ID</th>
+       <th scope="col">商品名</th>
+       <th scope="col">税込価格</th>
+       <th scope="col">ジャンル</th>
+      </tr>
+     </thead>
+     <tbody>
+      <% @items.each do |item| %>
+      <tr>
+       <th scope="col"><%= item.id %></th>
+       <th scope="col">
+        <%= link_to admin_item_path(item) do %>
+         <%= item.name %></th>
+        <% end %>
+       <th scope="col"><%= item.price %></th>
+       <th scope="col"><%= item.genre %></th>
+      </tr>
+      <% end %>
+     </tbody>
+    </table>
+   </div>
+  </div>
+ </div>
+
+
+
