@@ -20,6 +20,7 @@ Rails.application.routes.draw do
    patch "customers/:id/edit" => 'customers#update'
    get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
    patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+   get 'customers/:id/verification' => 'customers#verification',as: 'verification'
   end
 
 
