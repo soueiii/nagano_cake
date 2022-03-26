@@ -1,15 +1,33 @@
-<h4>ジャンル検索</h4>
- <% @genres.each do |genre| %>
-  <%= genre.name %>
- <% end %>
-
-<h2><%= @item.name %></h2>
-<%= attachment_image_tag @item, :image, :fill, 200, 200 %>
-<%= @item.introduction %>
-¥<%= @item.price %>（税込）
-
-<%= form_with model: @cart_item, url:public_cart_items_path, local:true do |f| %>
- <%= f.hidden_field :item_id, :value => @item.id %>
- <%= f.select :amount, [['１',1], ['２',2], ['３',3], ['４',4], ['５',5]] %>
- <%= f.submit 'カートに入れる' %>
-<% end %>
+<div class="container">
+ <div class="row mt-5">
+    <div class="col-md-3">
+     <table border="1" width="170" >
+      <tr align="center">
+       <th>ジャンル検索</th>
+      </tr>
+     <% @genres.each do |genre| %>
+            <tr class="table table-borderless">
+             <td>
+              <%= genre.name %>
+             </td>
+            </tr>
+            <% end %>
+           </table>
+     </div>
+     <div class="col-md-3">
+       <%= attachment_image_tag @item, :image, :fill, 250, 250 %>
+     </div>
+     <div class="col-md-5">
+       <h1><%= @item.name %></h1><br><br>
+       <%= @item.introduction %><br><br>
+       ¥<%= @item.price %>（税込）<br><br>
+       
+       <%= form_with model: @cart_item, url:public_cart_items_path, local:true do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.select :amount, [['１',1], ['２',2], ['３',3], ['４',4], ['５',5]] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= f.submit 'カートに入れる', class: " btn btn-success" %>
+       <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
