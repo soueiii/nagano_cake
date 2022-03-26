@@ -14,13 +14,13 @@ Rails.application.routes.draw do
        delete 'destroy_all'
       end
      end
+   get 'orders/verification' => 'orders#verification',as: 'verification'
    resources :orders
    resources :addresses
    resources :customers, only: [:show,:edit]
    patch "customers/:id/edit" => 'customers#update'
    get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
    patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-   get 'customers/:id/verification' => 'customers#verification',as: 'verification'
   end
 
 
