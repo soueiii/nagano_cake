@@ -50,8 +50,9 @@ red {
 }
 
 li {
-  display: inline-block;
-  margin-right: 15px;
+ width: 25%;
+ list-style: none;
+ border-radius: 5px;
 }
 
 .item {
@@ -65,4 +66,9 @@ li {
 
 .cart p{
   margin-bottom: 40px;
+}
+
+ul {
+  display :flex;
+  flex-wrap: wrap;
 }

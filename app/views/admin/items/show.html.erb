@@ -3,16 +3,15 @@
   <div class="col-md-5">
    <h2><span class="bg-secondary">商品詳細</span></h2>
    <br>
-   <%= attachment_image_tag @item, :image, :fill, 400, 400 %>
+   <%= attachment_image_tag @item, :image, size: '400x330' %>
   </div>
     <div class0="col-md-7 mt-5"><br>
-    商品名　　
+    商品名
     <%= @item.name %><br><br>
-    商品説明　　
+    商品説明
     <%= @item.introduction %><br><br>
-    ジャンル　　
-    <%= @item.genre %><br><br>
-   税込価格（税抜き価格）　　　
+
+   税込価格（税抜き価格）
     <%= @item.price %>円<br><br>
 
 <%= link_to "編集する", edit_admin_item_path(@item), class:"btn btn-success" %>

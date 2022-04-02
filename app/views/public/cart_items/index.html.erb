@@ -26,6 +26,7 @@
         <td><%= cart_item.item.with_tax_price %></td>
         <td><%= cart_item.amount %></td>
         <td><%= cart_item.subtotal%></td>
+            <% @total += cart_item.subtotal %>
         <td><%= link_to "削除する", public_cart_item_path(cart_item), method: :delete,class:"btn btn-danger" %></td>
        </tr>
        <% end %>
@@ -47,8 +48,8 @@
            <th bgcolor="lightslategray">
             合計金額
            <th>
+            <%= @total %>
            <th>
-            10000
            </th>
            </tr>
          </table>
@@ -63,3 +64,4 @@
    </div>
   </div>
 </div>
+

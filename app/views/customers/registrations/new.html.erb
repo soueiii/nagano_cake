@@ -1,6 +1,5 @@
 <div class="container">
  <div class="row mt-5">
-  <div class= "col-md-1"></div>
    <div class="col-md-11">
     <h2><span class="bg-secondary">新規会員登録</span></h2>
 
@@ -9,18 +8,27 @@
 
       <div class="form_horizontal">
         <div class="form_group">
-         <div class="col-sm-12 form-inline"><div class="col-md-5">名前</div>
-         (姓)<%= f.text_field :first_name ,class: "form_control" %>
-        （名）<%= f.text_field :last_name,class: "form_control"  %><br><br>
+         <div class="col-sm-12 form-inline"><div class="col-md-4">名前</div>
+         <div class="col-md-1">
+           (姓)
+         </div>
+         <%= f.text_field :first_name ,class: "form_control" %>
+         <div class="col-md-2">
+        （名）
+         </div><%= f.text_field :last_name,class: "form_control"  %><br><br>
         </div>
        </div>
       </div>
 
       <div class="form_horizontal">
         <div class="form_group">
-         <div class="col-sm-12 form-inline"><div class="col-md-5">フリガナ</div>
-         (セイ)<%= f.text_field :first_name_kana ,class: "form_control" %>
-        （メイ）<%= f.text_field :last_name_kana,class: "form_control"  %><br><br>
+         <div class="col-sm-12 form-inline"><div class="col-md-4">フリガナ</div>
+         <div class="col-md-1">
+         (セイ)
+         </div><%= f.text_field :first_name_kana ,class: "form_control" %>
+         <div class="col-md-2">
+        （メイ）
+         </div><%= f.text_field :last_name_kana,class: "form_control"  %><br><br>
         </div>
        </div>
       </div>
@@ -52,7 +60,6 @@
       <div class="field">
         <div class="col-sm-12 form-inline"><div class="col-md-5">パスワード</div>
         <% if @minimum_password_length %>
-        <em>(６文字以上)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password" %><br><br>
       </div>
@@ -66,8 +73,8 @@
       </div>
       </div>
     <div class="row">
-       <div class="col-md-6"></div>
-       <div class="col-md-6">
+       <div class="col-md-5"></div>
+       <div class="col-md-5">
         <%= f.submit "新規登録", class:"btn btn-success" %><br><br><br>
             <span class="bg-secondary">すでに登録済みの方</span><br>
         <%= link_to 'こちら',new_customer_session_path %>からログインしてください。
