@@ -13,7 +13,6 @@ class Admin::ItemsController < ApplicationController
  def create
    @genres = Genre.all
    @item = Item.new(item_params)
-   @item.genre_id = params[:genre][:name]
    @item.save
    redirect_to admin_item_path(@item)
  end

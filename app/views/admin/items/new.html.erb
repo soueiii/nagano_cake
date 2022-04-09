@@ -9,8 +9,6 @@
    <%= f.text_field :name %><br><br>
   商品説明　　
    <%= f.text_field :introduction %><br><br>
-  ジャンル　　
-   <%= collection_select(:genre, :name, @genres, :id, :name) %><br><br>
   税抜価格　　
    <%= f.text_field :price %>円<br><br>
   <%= f.submit'新規登録', class:"btn btn-success" %>

@@ -1,0 +1,70 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-1"></div>
+   <div class="col-md-8 mt-5">
+    <h2><span class="bg-generally">注文履歴詳細</span></h2>
+   </div>
+   <div class="col-md-3 mt-5">
+   </div>
+   </div>
+   <div class="row mt-5">
+    <div class="col-md-6">
+    <h3>注文情報</h3>
+     <table border="1" width="100%" height="120">
+          <tr><th bgcolor="lightslategray">注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+          <tr><th bgcolor="lightslategray">配送先
+          </th><td>
+          <p>
+            〒<%= @order.postal_code %>
+          </p>
+          <p>
+            <%= @order.address  %>
+          </p>
+          <p>
+            <%= @order.name %>
+          </p>
+          </td></tr>
+          <tr><th bgcolor="lightslategray">支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
+      </table>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <h3>注文情報</h3>
+      <table border="1" width="100%" height="120">
+          <tr><th bgcolor="lightslategray">商品合計</th><td><%= @order.total_payment %></td></tr>
+          <tr><th bgcolor="lightslategray">配送料</th><td>800</td></tr>
+          <tr><th bgcolor="lightslategray">ご請求額</th><td><%= @order.total_payment += 800 %></td></tr>
+      </table>
+     </div>
+    </div>
+    <div class="row mt-5">
+    <h3>注文情報</h3>
+     <table border="1" width="100%" height="50">
+      <tr bgcolor="lightslategray">
+        <th>商品</th>
+        <th>単価（税込）</th>
+        <th>個数</th>
+        <th>小計</th>
+      </tr>
+       <% @order.order_details.each do |order_detail| %>
+        <tr><td>
+         <%= order_detail.item.name %>
+        </td>
+        <td>
+         <%= order_detail.item.price %>
+        </td>
+        <td>
+         <%= order_detail.amount %>
+        </td>
+        <td>
+         <%= order_detail.item.price*order_detail.amount %>
+        </td>
+        </tr>
+       <% end %>
+
+     </table>
+    </div>
+   </div>
+
+
+

@@ -1,10 +1,73 @@
-マイページ
-<h2>登録情報</h2><%= link_to '編集する',edit_public_customer_path(@customer) %>
-  氏名<%= @customer.first_name %><%= @customer.last_name %>
-  カナ<%= @customer.first_name_kana %><%= @customer.last_name_kana %>
-  郵便番号<%= @customer.postal_code %>
-  住所<%= @customer.address %>
-  電話番号<%= @customer.telephone_number %>
-  メールアドレス<%= @customer.email %>
-  配送先<%= link_to "一覧を見る",public_addresses_path %>
-  注文履歴<%= link_to "一覧を見る",public_orders_path %>
+ <div class="container">
+ <div class="row mt-5">
+  <div class="col-md-3"></div>
+  <div class="col-md-9">
+   <h2><span class="bg-secondary">マイページ</span></h2>
+  </div>
+  <div class="col-md-12 mt-3">
+    <h4 style="display:inline">登録情報&nbsp;&nbsp;</h4><%= link_to '編集する',edit_public_customer_path(@customer), class:"btn btn-success" %>
+     </div>
+      </div>
+       <div class="row mt-3">
+        <div class="col-md-12">
+         <table border="1" width="70%" height="300">
+          <tbody>
+           <tr>
+            <td bgcolor="lightslategray">
+             氏名
+            </td>
+            <td>
+             <%= @customer.first_name %>&nbsp;
+             <%= @customer.last_name %>
+            </td>
+           </tr>
+           <tr>
+            <td bgcolor="lightslategray">
+             フリガナ
+            </td>
+            <td>
+             <%= @customer.first_name_kana %>&nbsp;
+             <%= @customer.last_name_kana %>
+            </td>
+           </tr>
+           <tr>
+            <td bgcolor="lightslategray">
+            郵便番号
+            </td>
+            <td>
+             <%= @customer.postal_code %>
+            </td>
+           </tr>
+           <tr>
+            <td bgcolor="lightslategray">
+             住所
+            </td>
+            <td>
+             <%= @customer.address %>
+            </td>
+           </tr>
+           <tr>
+            <td bgcolor="lightslategray">
+             電話番号
+            </td>
+            <td>
+             <%= @customer.telephone_number %>
+            </td>
+           </tr>
+           <tr>
+            <td bgcolor="lightslategray">
+             メールアドレス
+             </td>
+            <td>
+             <%= @customer.email %>
+            </td>
+           </tr>
+        </tbody>
+     </table>
+    <br>
+    <h4 style="display:inline"> 配送先&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4><%= link_to "一覧を見る",public_addresses_path, class: "btn btn-primary" %>&nbsp;
+    <br><br>
+    <h4 style="display:inline">注文履歴&nbsp;&nbsp;</h4><%= link_to "一覧を見る",public_orders_path, class: "btn btn-primary" %>&nbsp;
+   </div>
+  </div>
+ </div>
