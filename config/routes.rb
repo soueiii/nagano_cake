@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :customers, controllers: {
-    sessions: 'customers/sessions',
-    passwords: 'customers/passwords',
-    registrations: 'customers/registrations'
-  }
+devise_for :customer, controllers: {
+  registrations: "customer/registrations",
+  sessions: 'customer/sessions'
+}
 
   namespace :public do
    root to: 'homes#top'
@@ -15,10 +14,14 @@ Rails.application.routes.draw do
       end
      end
    get 'orders/verification' => 'orders#verification',as: 'verification'
-   resources :orders
+   get 'orders/thanks' => 'orders#thanks', as: 'thanks'
+   resources :orders, only: [:new, :create ,:index, :show]
    resources :addresses
    resources :customers, only: [:show,:edit]
    patch "customers/:id/edit" => 'customers#update'
+   patch "cart_items/:id/edit" => 'cart_items#update'
+   get 'customers/:id/verfication' => 'customers#verfication', as: 'verfication'
+   patch 'customers/:id/withdrawal' => 'customers#withdrawal', as:'withdrawal'
   end
 
 

@@ -24,33 +24,38 @@
    </div>
   <div class="col-md-8">
  <%= f.radio_button :select_address, 0 %>
- ご自身の住所
+ ご自身の住所<br>
+ 〒<%= current_customer.postal_code %>
  <%= current_customer.address %><br>
-
+ <%= current_customer.first_name %> <%= current_customer.last_name %>
+ <br><br>
 
  <%= f.radio_button :select_address, 1 %>
- 登録済の住所
- <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :full_address) %><br>
+ 登録済の住所<br>
+ <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :full_address) %><br><br>
 
  <%= f.radio_button :select_address, 2 %>
  新しいお届け先<br>
- 郵便番号（ハイフンなし）
- <%= f.text_field :postal_code %><br>
- 住所
- <%= f.text_field :address %><br>
- 宛名
- <%= f.text_field :name %><br>
+ 郵便番号（ハイフンなし）&nbsp;
+ <%= f.text_field :postal_code %><br><br>
+ 住所&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <%= f.text_field :address %><br><br>
+ 宛名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <%= f.text_field :name %><br><br>
+
+   <%= f.submit '確認画面へ進む' ,class:"btn btn-primary" %>
+  <% end %>
 
   </div>
  </div>
 <br>
 </div>
 </div>
-<div class="row-mt-5">
- <div class="col-md-5"></div>
- <div class="col-md-3">
-   <%= f.submit '確認画面へ進む' ,class:"btn btn-primary" %>
-  <% end %>
- </div>
 </div>
-</div>
+
